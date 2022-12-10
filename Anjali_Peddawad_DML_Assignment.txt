@@ -5,7 +5,7 @@ mysql> alter table employee
 Query OK, 0 rows affected (1.85 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 
-mysql> insert into employee values(1,'Namrata','Humbe','humbenamu@gmail.com',8856979256,'2022-08-25',101,25000,3000,200,10);
+mysql> insert into employee values(1,'Anjali','Peddawad','humbenamu@gmail.com',8856979256,'2022-08-25',101,25000,3000,200,10);
 Query OK, 1 row affected (0.10 sec)
 mysql> select * from employee;
 +-----+------------+-----------+---------------------+--------------+------------+--------+--------+------------+------------+---------+
