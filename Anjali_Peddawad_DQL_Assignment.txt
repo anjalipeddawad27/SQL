@@ -1,0 +1,539 @@
+1.	Write a query to display the names (first_name, last_name) using alias name “First Name", "Last Name.
+ANS:
+mysql> select * from employee;
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+
+| eid | first_name | last_name | email                | phone_number | hire_date  | job_id | salary | commission | manager_id | dept_id |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+
+|   1 | Namrata    | Humbe     | humbenamu@gmail.com  |   8856979256 | 2022-08-25 |    101 |  27500 |       2750 |        200 |      10 |
+|   2 | Priyanka   | Jinturkar | jinturkarp@gmail.com |   8856979257 | 2012-09-05 |    101 |  27500 |       2750 |        201 |      20 |
+|   3 | Neha       | Bura      | buraneha@gmail.com   |   8856979258 | 2018-05-15 |    102 |  55000 |       5500 |        116 |      70 |
+|   4 | Sneha      | Kabra     | Not Available        |   8756979258 | 2018-05-15 |    102 |  55000 |       5500 |        204 |      80 |
+|   5 | Vikram     | Bansode   | Not Available        |   9856979258 | 2018-05-15 |    102 |  63800 |       6380 |        114 |      30 |
+|   6 | Sanhita    | Kasat     | kasatsanhi@gmail.com |   8856879258 | 2018-05-15 |    102 |  29700 |       2970 |        115 |      50 |
+|   7 | Veeha      | Shinde    | shindev@gmail.com    |   8855679258 | 2018-05-15 |    102 |  33000 |       3300 |        202 |      40 |
+|   8 | Adesh      | Kadam     | kadamad@gmail.com    |   8856979348 | 2018-05-15 |    102 |  38500 |       3850 |        116 |      70 |
+|   9 | Shital     | Paliwal   | Not Available        |   8856979267 | 2018-05-15 |    102 |  44000 |       4400 |        114 |      30 |
+|  10 | Pravin     | Jadhav    | jadhav23@gmail.com   |   8856979292 | 2018-05-15 |    102 |  55000 |       5500 |        203 |      60 |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+
+10 rows in set (0.00 sec)
+
+mysql> select first_name 'First Name',last_name 'Last Name' from employee;
++------------+-----------+
+| First Name | Last Name |
++------------+-----------+
+| Namrata    | Humbe     |
+| Priyanka   | Jinturkar |
+| Neha       | Bura      |
+| Sneha      | Kabra     |
+| Vikram     | Bansode   |
+| Sanhita    | Kasat     |
+| Veeha      | Shinde    |
+| Adesh      | Kadam     |
+| Shital     | Paliwal   |
+| Pravin     | Jadhav    |
++------------+-----------+
+10 rows in set (0.00 sec)
+
+2.	Write a query to get unique department ID from employee table.
+ANS:
+mysql> select * from employee;
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+
+| eid | first_name | last_name | email                | phone_number | hire_date  | job_id | salary | commission | manager_id | dept_id |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+
+|   1 | Namrata    | Humbe     | humbenamu@gmail.com  |   8856979256 | 2022-08-25 |    101 |  27500 |       2750 |        200 |      10 |
+|   2 | Priyanka   | Jinturkar | jinturkarp@gmail.com |   8856979257 | 2012-09-05 |    101 |  27500 |       2750 |        201 |      20 |
+|   3 | Neha       | Bura      | buraneha@gmail.com   |   8856979258 | 2018-05-15 |    102 |  55000 |       5500 |        116 |      70 |
+|   4 | Sneha      | Kabra     | Not Available        |   8756979258 | 2018-05-15 |    102 |  55000 |       5500 |        204 |      80 |
+|   5 | Vikram     | Bansode   | Not Available        |   9856979258 | 2018-05-15 |    102 |  63800 |       6380 |        114 |      30 |
+|   6 | Sanhita    | Kasat     | kasatsanhi@gmail.com |   8856879258 | 2018-05-15 |    102 |  29700 |       2970 |        115 |      50 |
+|   7 | Veeha      | Shinde    | shindev@gmail.com    |   8855679258 | 2018-05-15 |    102 |  33000 |       3300 |        202 |      40 |
+|   8 | Adesh      | Kadam     | kadamad@gmail.com    |   8856979348 | 2018-05-15 |    102 |  38500 |       3850 |        116 |      70 |
+|   9 | Shital     | Paliwal   | Not Available        |   8856979267 | 2018-05-15 |    102 |  44000 |       4400 |        114 |      30 |
+|  10 | Pravin     | Jadhav    | jadhav23@gmail.com   |   8856979292 | 2018-05-15 |    102 |  55000 |       5500 |        203 |      60 |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+
+10 rows in set (0.00 sec)
+
+mysql> select distinct(dept_id) from employee;
++---------+
+| dept_id |
++---------+
+|      10 |
+|      20 |
+|      30 |
+|      40 |
+|      50 |
+|      60 |
+|      70 |
+|      80 |
++---------+
+8 rows in set (0.05 sec)
+
+3.	Write a query to get all employee details from the employee table order by first name, descending
+mysql> select * from employee order by first_name desc;
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+
+| eid | first_name | last_name | email                | phone_number | hire_date  | job_id | salary | commission | manager_id | dept_id |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+
+|   5 | Vikram     | Bansode   | Not Available        |   9856979258 | 2018-05-15 |    102 |  63800 |       6380 |        114 |      30 |
+|   7 | Veeha      | Shinde    | shindev@gmail.com    |   8855679258 | 2018-05-15 |    102 |  33000 |       3300 |        202 |      40 |
+|   4 | Sneha      | Kabra     | Not Available        |   8756979258 | 2018-05-15 |    102 |  55000 |       5500 |        204 |      80 |
+|   9 | Shital     | Paliwal   | Not Available        |   8856979267 | 2018-05-15 |    102 |  44000 |       4400 |        114 |      30 |
+|   6 | Sanhita    | Kasat     | kasatsanhi@gmail.com |   8856879258 | 2018-05-15 |    102 |  29700 |       2970 |        115 |      50 |
+|   2 | Priyanka   | Jinturkar | jinturkarp@gmail.com |   8856979257 | 2012-09-05 |    101 |  27500 |       2750 |        201 |      20 |
+|  10 | Pravin     | Jadhav    | jadhav23@gmail.com   |   8856979292 | 2018-05-15 |    102 |  55000 |       5500 |        203 |      60 |
+|   3 | Neha       | Bura      | buraneha@gmail.com   |   8856979258 | 2018-05-15 |    102 |  55000 |       5500 |        116 |      70 |
+|   1 | Namrata    | Humbe     | humbenamu@gmail.com  |   8856979256 | 2022-08-25 |    101 |  27500 |       2750 |        200 |      10 |
+|   8 | Adesh      | Kadam     | kadamad@gmail.com    |   8856979348 | 2018-05-15 |    102 |  38500 |       3850 |        116 |      70 |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+
+10 rows in set (0.05 sec)
+
+4.	Write a query to get the names (first_name, last_name), salary, PF of all the employees (PF is calculated as 15% of salary).
+ANS:
+mysql> alter table employee
+    -> add column pf float;
+Query OK, 0 rows affected (0.34 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> update employee set pf=(salary*0.15);
+Query OK, 10 rows affected (0.09 sec)
+Rows matched: 10  Changed: 10  Warnings: 0
+
+mysql> select first_name,last_name,pf from employee;
++------------+-----------+------+
+| first_name | last_name | pf   |
++------------+-----------+------+
+| Namrata    | Humbe     | 4125 |
+| Priyanka   | Jinturkar | 4125 |
+| Neha       | Bura      | 8250 |
+| Sneha      | Kabra     | 8250 |
+| Vikram     | Bansode   | 9570 |
+| Sanhita    | Kasat     | 4455 |
+| Veeha      | Shinde    | 4950 |
+| Adesh      | Kadam     | 5775 |
+| Shital     | Paliwal   | 6600 |
+| Pravin     | Jadhav    | 8250 |
++------------+-----------+------+
+10 rows in set (0.00 sec)
+
+5.	Write a query to get the employee ID, names (first_name, last_name), salary in ascending order of salary.
+ANS:
+mysql> select eid,first_name,last_name,salary from employee order by salary;
++-----+------------+-----------+--------+
+| eid | first_name | last_name | salary |
++-----+------------+-----------+--------+
+|   1 | Namrata    | Humbe     |  27500 |
+|   2 | Priyanka   | Jinturkar |  27500 |
+|   6 | Sanhita    | Kasat     |  29700 |
+|   7 | Veeha      | Shinde    |  33000 |
+|   8 | Adesh      | Kadam     |  38500 |
+|   9 | Shital     | Paliwal   |  44000 |
+|   3 | Neha       | Bura      |  55000 |
+|   4 | Sneha      | Kabra     |  55000 |
+|  10 | Pravin     | Jadhav    |  55000 |
+|   5 | Vikram     | Bansode   |  63800 |
++-----+------------+-----------+--------+
+10 rows in set (0.00 sec)
+
+6.	Write a query to get the total salaries payable to employees.
+ANS:
+mysql> select sum(salary) from employee;
++-------------+
+| sum(salary) |
++-------------+
+|      429000 |
++-------------+
+1 row in set (0.08 sec)
+
+7.	Write a query to get the maximum and minimum salary from employees table.
+ANS:
+mysql> select max(salary),min(salary) from employee;
++-------------+-------------+
+| max(salary) | min(salary) |
++-------------+-------------+
+|       63800 |       27500 |
++-------------+-------------+
+1 row in set (0.00 sec)
+
+8.	Write a query to get the average salary and number of employees in the employees table.
+ANS:
+mysql> select avg(salary),count(*) from employee;
++-------------+----------+
+| avg(salary) | count(*) |
++-------------+----------+
+|       42900 |       10 |
++-------------+----------+
+1 row in set (0.06 sec)
+
+9.	Write a query to get the number of employees working with the company.
+ANS:
+mysql>  select count(dept_id) from employee;
++----------------+
+| count(dept_id) |
++----------------+
+|             10 |
++----------------+
+1 row in set (0.00 sec)
+
+10.	Write a query to get the number of jobs available in the employees table
+ANS:
+mysql>  select count(dept_id) from employee;
++----------------+
+| count(dept_id) |
++----------------+
+|             10 |
++----------------+
+1 row in set (0.00 sec)
+
+11.	Write a query to select first 10 records from a table.
+ANS:
+mysql> select * from employee;
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+------+
+| eid | first_name | last_name | email                | phone_number | hire_date  | job_id | salary | commission | manager_id | dept_id | pf   |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+------+
+|   1 | Namrata    | Humbe     | humbenamu@gmail.com  |   8856979256 | 2022-08-25 |    101 |  27500 |       2750 |        200 |      10 | 4125 |
+|   2 | Priyanka   | Jinturkar | jinturkarp@gmail.com |   8856979257 | 2012-09-05 |    101 |  27500 |       2750 |        201 |      20 | 4125 |
+|   3 | Neha       | Bura      | buraneha@gmail.com   |   8856979258 | 2018-05-15 |    102 |  55000 |       5500 |        116 |      70 | 8250 |
+|   4 | Sneha      | Kabra     | Not Available        |   8756979258 | 2018-05-15 |    102 |  55000 |       5500 |        204 |      80 | 8250 |
+|   5 | Vikram     | Bansode   | Not Available        |   9856979258 | 2018-05-15 |    102 |  63800 |       6380 |        114 |      30 | 9570 |
+|   6 | Sanhita    | Kasat     | kasatsanhi@gmail.com |   8856879258 | 2018-05-15 |    102 |  29700 |       2970 |        115 |      50 | 4455 |
+|   7 | Veeha      | Shinde    | shindev@gmail.com    |   8855679258 | 2018-05-15 |    102 |  33000 |       3300 |        202 |      40 | 4950 |
+|   8 | Adesh      | Kadam     | kadamad@gmail.com    |   8856979348 | 2018-05-15 |    102 |  38500 |       3850 |        116 |      70 | 5775 |
+|   9 | Shital     | Paliwal   | Not Available        |   8856979267 | 2018-05-15 |    102 |  44000 |       4400 |        114 |      30 | 6600 |
+|  10 | Pravin     | Jadhav    | jadhav23@gmail.com   |   8856979292 | 2018-05-15 |    102 |  55000 |       5500 |        203 |      60 | 8250 |
+|  11 | Pallavi    | Kadam     | kadamp@gmail.com     |   8856459257 | 2022-09-05 |    101 |  25000 |       2500 |        200 |      10 | 4000 |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+------+
+11 rows in set (0.00 sec)
+
+mysql> select * from employee limit 10;
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+------+
+| eid | first_name | last_name | email                | phone_number | hire_date  | job_id | salary | commission | manager_id | dept_id | pf   |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+------+
+|   1 | Namrata    | Humbe     | humbenamu@gmail.com  |   8856979256 | 2022-08-25 |    101 |  27500 |       2750 |        200 |      10 | 4125 |
+|   2 | Priyanka   | Jinturkar | jinturkarp@gmail.com |   8856979257 | 2012-09-05 |    101 |  27500 |       2750 |        201 |      20 | 4125 |
+|   3 | Neha       | Bura      | buraneha@gmail.com   |   8856979258 | 2018-05-15 |    102 |  55000 |       5500 |        116 |      70 | 8250 |
+|   4 | Sneha      | Kabra     | Not Available        |   8756979258 | 2018-05-15 |    102 |  55000 |       5500 |        204 |      80 | 8250 |
+|   5 | Vikram     | Bansode   | Not Available        |   9856979258 | 2018-05-15 |    102 |  63800 |       6380 |        114 |      30 | 9570 |
+|   6 | Sanhita    | Kasat     | kasatsanhi@gmail.com |   8856879258 | 2018-05-15 |    102 |  29700 |       2970 |        115 |      50 | 4455 |
+|   7 | Veeha      | Shinde    | shindev@gmail.com    |   8855679258 | 2018-05-15 |    102 |  33000 |       3300 |        202 |      40 | 4950 |
+|   8 | Adesh      | Kadam     | kadamad@gmail.com    |   8856979348 | 2018-05-15 |    102 |  38500 |       3850 |        116 |      70 | 5775 |
+|   9 | Shital     | Paliwal   | Not Available        |   8856979267 | 2018-05-15 |    102 |  44000 |       4400 |        114 |      30 | 6600 |
+|  10 | Pravin     | Jadhav    | jadhav23@gmail.com   |   8856979292 | 2018-05-15 |    102 |  55000 |       5500 |        203 |      60 | 8250 |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+------+
+10 rows in set (0.00 sec)
+
+12.	Write a query to display the name (first_name, last_name) and salary for all employees whose salary is not in the range $10,000 through $15,000
+ANS:
+mysql> select * from employee;
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+------+
+| eid | first_name | last_name | email                | phone_number | hire_date  | job_id | salary | commission | manager_id | dept_id | pf   |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+------+
+|   1 | Namrata    | Humbe     | humbenamu@gmail.com  |   8856979256 | 2022-08-25 |    101 |  27500 |       2750 |        200 |      10 | 4125 |
+|   2 | Priyanka   | Jinturkar | jinturkarp@gmail.com |   8856979257 | 2012-09-05 |    101 |  27500 |       2750 |        201 |      20 | 4125 |
+|   3 | Neha       | Bura      | buraneha@gmail.com   |   8856979258 | 2018-05-15 |    102 |  55000 |       5500 |        116 |      70 | 8250 |
+|   4 | Sneha      | Kabra     | Not Available        |   8756979258 | 2018-05-15 |    102 |  55000 |       5500 |        204 |      80 | 8250 |
+|   5 | Vikram     | Bansode   | Not Available        |   9856979258 | 2018-05-15 |    102 |  63800 |       6380 |        114 |      30 | 9570 |
+|   6 | Sanhita    | Kasat     | kasatsanhi@gmail.com |   8856879258 | 2018-05-15 |    102 |  29700 |       2970 |        115 |      50 | 4455 |
+|   7 | Veeha      | Shinde    | shindev@gmail.com    |   8855679258 | 2018-05-15 |    102 |  33000 |       3300 |        202 |      40 | 4950 |
+|   8 | Adesh      | Kadam     | kadamad@gmail.com    |   8856979348 | 2018-05-15 |    102 |  38500 |       3850 |        116 |      70 | 5775 |
+|   9 | Shital     | Paliwal   | Not Available        |   8856979267 | 2018-05-15 |    102 |  44000 |       4400 |        114 |      30 | 6600 |
+|  10 | Pravin     | Jadhav    | jadhav23@gmail.com   |   8856979292 | 2018-05-15 |    102 |  55000 |       5500 |        203 |      60 | 8250 |
+|  11 | Pallavi    | Kadam     | kadamp@gmail.com     |   8856459257 | 2022-09-05 |    101 |  25000 |       2500 |        200 |      10 | 4000 |
+|  12 | Renu       | Bhosale   | bhosaleu@gmail.com   |   8856459347 | 1992-12-05 |    101 |  15000 |       2500 |        200 |      10 | 4000 |
+|  13 | Piyu       | Bhosale   | bhosale98@gmail.com  |   8845459347 | 1998-12-05 |    101 |  12000 |       2500 |        203 |      60 | 5000 |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+------+
+13 rows in set (0.00 sec)
+
+mysql> select first_name, last_name,salary from employee where salary not between 10000 and 15000;
++------------+-----------+--------+
+| first_name | last_name | salary |
++------------+-----------+--------+
+| Namrata    | Humbe     |  27500 |
+| Priyanka   | Jinturkar |  27500 |
+| Neha       | Bura      |  55000 |
+| Sneha      | Kabra     |  55000 |
+| Vikram     | Bansode   |  63800 |
+| Sanhita    | Kasat     |  29700 |
+| Veeha      | Shinde    |  33000 |
+| Adesh      | Kadam     |  38500 |
+| Shital     | Paliwal   |  44000 |
+| Pravin     | Jadhav    |  55000 |
+| Pallavi    | Kadam     |  25000 |
++------------+-----------+--------+
+11 rows in set (0.00 sec)
+
+13.	Write a query to display the name (first_name, last_name) and department ID of all employees in departments 30 or 100 in ascending order.
+ANS:
+mysql> select concat(first_name," ",last_name) 'Name',dept_id from employee where (dept_id=30 or dept_id=100) order by dept_id;
++----------------+---------+
+| Name           | dept_id |
++----------------+---------+
+| Vikram Bansode |      30 |
+| Shital Paliwal |      30 |
++----------------+---------+
+2 rows in set (0.00 sec)
+
+14.	Write a query to display the name (first_name, last_name) and salary for all employees 
+whose salary is not in the range $10,000 through $15,000 and are in department 30 or 100.
+ANS:
+mysql> select concat(first_name," ",last_name) 'Name',salary from employee where
+    -> ((dept_id=30 or dept_id=100) and (salary<10000 or salary>15000)) order by dept_id;
++----------------+---------+
+| Name           |  Salary |
++----------------+---------+
+| Vikram Bansode |  638000 |
+| Shital Paliwal |  44000  |
++----------------+---------+
+2 rows in set (0.00 sec)
+
+15.	Write a query to display the name (first_name, last_name) and hire date for all employees who were hired in 1997.
+ANS:
+mysql> insert into employee values(14,'Venu','Sale','Salerenu@gmail.com',8856459347,'1997-12-05',101,15000,2500,114,30,4000);
+Query OK, 1 row affected (0.15 sec)
+
+mysql> select * from employee;
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+------+
+| eid | first_name | last_name | email                | phone_number | hire_date  | job_id | salary | commission | manager_id | dept_id | pf   |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+------+
+|   1 | Namrata    | Humbe     | humbenamu@gmail.com  |   8856979256 | 2022-08-25 |    101 |  27500 |       2750 |        200 |      10 | 4125 |
+|   2 | Priyanka   | Jinturkar | jinturkarp@gmail.com |   8856979257 | 2012-09-05 |    101 |  27500 |       2750 |        201 |      20 | 4125 |
+|   3 | Neha       | Bura      | buraneha@gmail.com   |   8856979258 | 2018-05-15 |    102 |  55000 |       5500 |        116 |      70 | 8250 |
+|   4 | Sneha      | Kabra     | Not Available        |   8756979258 | 2018-05-15 |    102 |  55000 |       5500 |        204 |      80 | 8250 |
+|   5 | Vikram     | Bansode   | Not Available        |   9856979258 | 2018-05-15 |    102 |  63800 |       6380 |        114 |      30 | 9570 |
+|   6 | Sanhita    | Kasat     | kasatsanhi@gmail.com |   8856879258 | 2018-05-15 |    102 |  29700 |       2970 |        115 |      50 | 4455 |
+|   7 | Veeha      | Shinde    | shindev@gmail.com    |   8855679258 | 2018-05-15 |    102 |  33000 |       3300 |        202 |      40 | 4950 |
+|   8 | Adesh      | Kadam     | kadamad@gmail.com    |   8856979348 | 2018-05-15 |    102 |  38500 |       3850 |        116 |      70 | 5775 |
+|   9 | Shital     | Paliwal   | Not Available        |   8856979267 | 2018-05-15 |    102 |  44000 |       4400 |        114 |      30 | 6600 |
+|  10 | Pravin     | Jadhav    | jadhav23@gmail.com   |   8856979292 | 2018-05-15 |    102 |  55000 |       5500 |        203 |      60 | 8250 |
+|  11 | Pallavi    | Kadam     | kadamp@gmail.com     |   8856459257 | 2022-09-05 |    101 |  25000 |       2500 |        200 |      10 | 4000 |
+|  12 | Renu       | Bhosale   | bhosaleu@gmail.com   |   8856459347 | 1992-12-05 |    101 |  15000 |       2500 |        200 |      10 | 4000 |
+|  13 | Piyu       | Bhosale   | bhosale98@gmail.com  |   8845459347 | 1998-12-05 |    101 |  12000 |       2500 |        203 |      60 | 5000 |
+|  14 | Venu       | Sale      | Salerenu@gmail.com   |   8856459347 | 1997-12-05 |    101 |  15000 |       2500 |        114 |      30 | 4000 |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+------+
+14 rows in set (0.00 sec)
+
+mysql> select concat(first_name," ",last_name) 'Name',hire_date from employee where hire_date between '1996-12-31' and '1998-01-01';
++-----------+------------+
+| Name      | hire_date  |
++-----------+------------+
+| Venu Sale | 1997-12-05 |
++-----------+------------+
+1 row in set (0.00 sec)
+
+16.	Write a query to display the first_name of all employees who have both "b" and "c" in their first name
+ANS:
+mysql> select first_name from employee where first_name like '%b%' and first_name like '%c%';
++------------+
+| first_name |
++------------+
+| Bace       |
++------------+
+1 row in set (0.09 sec)
+
+17.	Write a query to display the last name, job, and salary for all employees whose job is that of a Programmer or a Shipping Clerk, 
+and whose salary is not equal to $4,500, $10,000, or $15,000.
+ANS:
+mysql> select* from employee;
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+------+
+| eid | first_name | last_name | email                | phone_number | hire_date  | job_id | salary | commission | manager_id | dept_id | pf   |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+------+
+|   1 | Namrata    | Humbe     | humbenamu@gmail.com  |   8856979256 | 2022-08-25 |    101 |  27500 |       2750 |        200 |      10 | 4125 |
+|   2 | Priyanka   | Jinturkar | jinturkarp@gmail.com |   8856979257 | 2012-09-05 |    101 |  27500 |       2750 |        201 |      20 | 4125 |
+|   3 | Neha       | Bura      | buraneha@gmail.com   |   8856979258 | 2018-05-15 |    102 |  55000 |       5500 |        116 |      70 | 8250 |
+|   4 | Sneha      | Kabra     | Not Available        |   8756979258 | 2018-05-15 |    102 |  55000 |       5500 |        204 |      80 | 8250 |
+|   5 | Vikram     | Bansode   | Not Available        |   9856979258 | 2018-05-15 |    102 |  63800 |       6380 |        114 |      30 | 9570 |
+|   6 | Sanhita    | Kasat     | kasatsanhi@gmail.com |   8856879258 | 2018-05-15 |    102 |  29700 |       2970 |        115 |      50 | 4455 |
+|   7 | Veeha      | Shinde    | shindev@gmail.com    |   8855679258 | 2018-05-15 |    102 |  33000 |       3300 |        202 |      40 | 4950 |
+|   8 | Adesh      | Kadam     | kadamad@gmail.com    |   8856979348 | 2018-05-15 |    102 |  38500 |       3850 |        116 |      70 | 5775 |
+|   9 | Shital     | Paliwal   | Not Available        |   8856979267 | 2018-05-15 |    102 |  44000 |       4400 |        114 |      30 | 6600 |
+|  10 | Pravin     | Jadhav    | jadhav23@gmail.com   |   8856979292 | 2018-05-15 |    102 |  55000 |       5500 |        203 |      60 | 8250 |
+|  11 | Pallavi    | Kadam     | kadamp@gmail.com     |   8856459257 | 2022-09-05 |    101 |  25000 |       2500 |        200 |      10 | 4000 |
+|  12 | Renu       | Bhosale   | bhosaleu@gmail.com   |   8856459347 | 1992-12-05 |    101 |  15000 |       2500 |        200 |      10 | 4000 |
+|  13 | Piyu       | Bhosale   | bhosale98@gmail.com  |   8845459347 | 1998-12-05 |    101 |  12000 |       2500 |        203 |      60 | 5000 |
+|  14 | Venu       | Sale      | Salerenu@gmail.com   |   8856459347 | 1997-12-05 |    101 |  15000 |       2500 |        114 |      30 | 4000 |
+|  15 | Bace       | Sale      | Salerenu@gmail.com   |   8856459347 | 1997-12-05 |    101 |  15000 |       2500 |        114 |      30 | 4000 |
+|  16 | Chhaya     | Dresale   | dresale98@gmail.com  |   9845459347 | 1998-12-05 |    101 |  17000 |       2500 |        203 |      60 | 6000 |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+------+
+16 rows in set (0.00 sec)
+
+mysql> select* from jobs;
++------+-----------+------------+------------+
+| jid  | jtitle    | min_salary | max_salary |
++------+-----------+------------+------------+
+|  100 | Assosiate |      25000 |      50000 |
+|  101 | manager   |     100000 |     200000 |
+|  102 | HR        |      30000 |      60000 |
+|  103 | Trainee   |      20000 |      30000 |
++------+-----------+------------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select last_name,job_id,salary from employee where salary not in (44000,10000,15000) and
+    -> job_id in (select jid from jobs where jtitle in ('manager','HR'));
++-----------+--------+--------+
+| last_name | job_id | salary |
++-----------+--------+--------+
+| Humbe     |    101 |  27500 |
+| Jinturkar |    101 |  27500 |
+| Bura      |    102 |  55000 |
+| Kabra     |    102 |  55000 |
+| Bansode   |    102 |  63800 |
+| Kasat     |    102 |  29700 |
+| Shinde    |    102 |  33000 |
+| Kadam     |    102 |  38500 |
+| Jadhav    |    102 |  55000 |
+| Kadam     |    101 |  25000 |
+| Bhosale   |    101 |  12000 |
+| Dresale   |    101 |  17000 |
++-----------+--------+--------+
+12 rows in set (0.00 sec)
+
+18.	Write a query to display the last name of employees whose names have exactly 6 characters.
+ANS:
+mysql> insert into employee values(16,'Chhaya','Dresale','dresale98@gmail.com',9845459347,'1998-12-05',101,17000,2500,203,60,6000);
+Query OK, 1 row affected (0.13 sec)
+
+mysql> select* from employee;
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+------+
+| eid | first_name | last_name | email                | phone_number | hire_date  | job_id | salary | commission | manager_id | dept_id | pf   |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+------+
+|   1 | Namrata    | Humbe     | humbenamu@gmail.com  |   8856979256 | 2022-08-25 |    101 |  27500 |       2750 |        200 |      10 | 4125 |
+|   2 | Priyanka   | Jinturkar | jinturkarp@gmail.com |   8856979257 | 2012-09-05 |    101 |  27500 |       2750 |        201 |      20 | 4125 |
+|   3 | Neha       | Bura      | buraneha@gmail.com   |   8856979258 | 2018-05-15 |    102 |  55000 |       5500 |        116 |      70 | 8250 |
+|   4 | Sneha      | Kabra     | Not Available        |   8756979258 | 2018-05-15 |    102 |  55000 |       5500 |        204 |      80 | 8250 |
+|   5 | Vikram     | Bansode   | Not Available        |   9856979258 | 2018-05-15 |    102 |  63800 |       6380 |        114 |      30 | 9570 |
+|   6 | Sanhita    | Kasat     | kasatsanhi@gmail.com |   8856879258 | 2018-05-15 |    102 |  29700 |       2970 |        115 |      50 | 4455 |
+|   7 | Veeha      | Shinde    | shindev@gmail.com    |   8855679258 | 2018-05-15 |    102 |  33000 |       3300 |        202 |      40 | 4950 |
+|   8 | Adesh      | Kadam     | kadamad@gmail.com    |   8856979348 | 2018-05-15 |    102 |  38500 |       3850 |        116 |      70 | 5775 |
+|   9 | Shital     | Paliwal   | Not Available        |   8856979267 | 2018-05-15 |    102 |  44000 |       4400 |        114 |      30 | 6600 |
+|  10 | Pravin     | Jadhav    | jadhav23@gmail.com   |   8856979292 | 2018-05-15 |    102 |  55000 |       5500 |        203 |      60 | 8250 |
+|  11 | Pallavi    | Kadam     | kadamp@gmail.com     |   8856459257 | 2022-09-05 |    101 |  25000 |       2500 |        200 |      10 | 4000 |
+|  12 | Renu       | Bhosale   | bhosaleu@gmail.com   |   8856459347 | 1992-12-05 |    101 |  15000 |       2500 |        200 |      10 | 4000 |
+|  13 | Piyu       | Bhosale   | bhosale98@gmail.com  |   8845459347 | 1998-12-05 |    101 |  12000 |       2500 |        203 |      60 | 5000 |
+|  14 | Venu       | Sale      | Salerenu@gmail.com   |   8856459347 | 1997-12-05 |    101 |  15000 |       2500 |        114 |      30 | 4000 |
+|  15 | Bace       | Sale      | Salerenu@gmail.com   |   8856459347 | 1997-12-05 |    101 |  15000 |       2500 |        114 |      30 | 4000 |
+|  16 | Chhaya     | Dresale   | dresale98@gmail.com  |   9845459347 | 1998-12-05 |    101 |  17000 |       2500 |        203 |      60 | 6000 |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+------+
+16 rows in set (0.00 sec)
+
+mysql> select last_name from employee where length(last_name)=6;
++-----------+
+| last_name |
++-----------+
+| Shinde    |
+| Jadhav    |
++-----------+
+2 rows in set (0.00 sec)
+
+19.	Write a query to display the last name of employees having 'e' as the third character.
+ANS:
+mysql> select* from employee;
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+------+
+| eid | first_name | last_name | email                | phone_number | hire_date  | job_id | salary | commission | manager_id | dept_id | pf   |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+------+
+|   1 | Namrata    | Humbe     | humbenamu@gmail.com  |   8856979256 | 2022-08-25 |    101 |  27500 |       2750 |        200 |      10 | 4125 |
+|   2 | Priyanka   | Jinturkar | jinturkarp@gmail.com |   8856979257 | 2012-09-05 |    101 |  27500 |       2750 |        201 |      20 | 4125 |
+|   3 | Neha       | Bura      | buraneha@gmail.com   |   8856979258 | 2018-05-15 |    102 |  55000 |       5500 |        116 |      70 | 8250 |
+|   4 | Sneha      | Kabra     | Not Available        |   8756979258 | 2018-05-15 |    102 |  55000 |       5500 |        204 |      80 | 8250 |
+|   5 | Vikram     | Bansode   | Not Available        |   9856979258 | 2018-05-15 |    102 |  63800 |       6380 |        114 |      30 | 9570 |
+|   6 | Sanhita    | Kasat     | kasatsanhi@gmail.com |   8856879258 | 2018-05-15 |    102 |  29700 |       2970 |        115 |      50 | 4455 |
+|   7 | Veeha      | Shinde    | shindev@gmail.com    |   8855679258 | 2018-05-15 |    102 |  33000 |       3300 |        202 |      40 | 4950 |
+|   8 | Adesh      | Kadam     | kadamad@gmail.com    |   8856979348 | 2018-05-15 |    102 |  38500 |       3850 |        116 |      70 | 5775 |
+|   9 | Shital     | Paliwal   | Not Available        |   8856979267 | 2018-05-15 |    102 |  44000 |       4400 |        114 |      30 | 6600 |
+|  10 | Pravin     | Jadhav    | jadhav23@gmail.com   |   8856979292 | 2018-05-15 |    102 |  55000 |       5500 |        203 |      60 | 8250 |
+|  11 | Pallavi    | Kadam     | kadamp@gmail.com     |   8856459257 | 2022-09-05 |    101 |  25000 |       2500 |        200 |      10 | 4000 |
+|  12 | Renu       | Bhosale   | bhosaleu@gmail.com   |   8856459347 | 1992-12-05 |    101 |  15000 |       2500 |        200 |      10 | 4000 |
+|  13 | Piyu       | Bhosale   | bhosale98@gmail.com  |   8845459347 | 1998-12-05 |    101 |  12000 |       2500 |        203 |      60 | 5000 |
+|  14 | Venu       | Sale      | Salerenu@gmail.com   |   8856459347 | 1997-12-05 |    101 |  15000 |       2500 |        114 |      30 | 4000 |
+|  15 | Bace       | Sale      | Salerenu@gmail.com   |   8856459347 | 1997-12-05 |    101 |  15000 |       2500 |        114 |      30 | 4000 |
+|  16 | Chhaya     | Dresale   | dresale98@gmail.com  |   9845459347 | 1998-12-05 |    101 |  17000 |       2500 |        203 |      60 | 6000 |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+------+
+16 rows in set (0.00 sec)
+
+mysql> select last_name from employee where last_name like '__e%';
++-----------+
+| last_name |
++-----------+
+| Dresale   |
++-----------+
+1 row in set (0.00 sec)
+
+20.	Write a query to display the jobs/designations available in the employees table.
+ANS:
+mysql> select * from jobs;
++------+-----------+------------+------------+
+| jid  | jtitle    | min_salary | max_salary |
++------+-----------+------------+------------+
+|    1 | Assosiate |      25000 |      50000 |
+|    2 | manager   |     100000 |     200000 |
+|    3 | HR        |      30000 |      60000 |
+|    4 | Trainee   |      20000 |      30000 |
++------+-----------+------------+------------+
+4 rows in set (0.00 sec)
+
+mysql> update jobs set jid=101 where jtitle='manager';
+Query OK, 1 row affected (0.21 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update jobs set jid=102 where jtitle='HR';
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update jobs set jid=100 where jtitle='Assosiate';
+Query OK, 1 row affected (0.16 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update jobs set jid=103 where jtitle='Trainee';
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from jobs;
++------+-----------+------------+------------+
+| jid  | jtitle    | min_salary | max_salary |
++------+-----------+------------+------------+
+|  100 | Assosiate |      25000 |      50000 |
+|  101 | manager   |     100000 |     200000 |
+|  102 | HR        |      30000 |      60000 |
+|  103 | Trainee   |      20000 |      30000 |
++------+-----------+------------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from employee;
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+------+
+| eid | first_name | last_name | email                | phone_number | hire_date  | job_id | salary | commission | manager_id | dept_id | pf   |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+------+
+|   1 | Namrata    | Humbe     | humbenamu@gmail.com  |   8856979256 | 2022-08-25 |    101 |  27500 |       2750 |        200 |      10 | 4125 |
+|   2 | Priyanka   | Jinturkar | jinturkarp@gmail.com |   8856979257 | 2012-09-05 |    101 |  27500 |       2750 |        201 |      20 | 4125 |
+|   3 | Neha       | Bura      | buraneha@gmail.com   |   8856979258 | 2018-05-15 |    102 |  55000 |       5500 |        116 |      70 | 8250 |
+|   4 | Sneha      | Kabra     | Not Available        |   8756979258 | 2018-05-15 |    102 |  55000 |       5500 |        204 |      80 | 8250 |
+|   5 | Vikram     | Bansode   | Not Available        |   9856979258 | 2018-05-15 |    102 |  63800 |       6380 |        114 |      30 | 9570 |
+|   6 | Sanhita    | Kasat     | kasatsanhi@gmail.com |   8856879258 | 2018-05-15 |    102 |  29700 |       2970 |        115 |      50 | 4455 |
+|   7 | Veeha      | Shinde    | shindev@gmail.com    |   8855679258 | 2018-05-15 |    102 |  33000 |       3300 |        202 |      40 | 4950 |
+|   8 | Adesh      | Kadam     | kadamad@gmail.com    |   8856979348 | 2018-05-15 |    102 |  38500 |       3850 |        116 |      70 | 5775 |
+|   9 | Shital     | Paliwal   | Not Available        |   8856979267 | 2018-05-15 |    102 |  44000 |       4400 |        114 |      30 | 6600 |
+|  10 | Pravin     | Jadhav    | jadhav23@gmail.com   |   8856979292 | 2018-05-15 |    102 |  55000 |       5500 |        203 |      60 | 8250 |
+|  11 | Pallavi    | Kadam     | kadamp@gmail.com     |   8856459257 | 2022-09-05 |    101 |  25000 |       2500 |        200 |      10 | 4000 |
+|  12 | Renu       | Bhosale   | bhosaleu@gmail.com   |   8856459347 | 1992-12-05 |    101 |  15000 |       2500 |        200 |      10 | 4000 |
+|  13 | Piyu       | Bhosale   | bhosale98@gmail.com  |   8845459347 | 1998-12-05 |    101 |  12000 |       2500 |        203 |      60 | 5000 |
+|  14 | Venu       | Sale      | Salerenu@gmail.com   |   8856459347 | 1997-12-05 |    101 |  15000 |       2500 |        114 |      30 | 4000 |
+|  15 | Bace       | Sale      | Salerenu@gmail.com   |   8856459347 | 1997-12-05 |    101 |  15000 |       2500 |        114 |      30 | 4000 |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+------+
+15 rows in set (0.00 sec)
+
+mysql> select jtitle from jobs where jid in (select distinct(job_id) from employee);
++---------+
+| jtitle  |
++---------+
+| manager |
+| HR      |
++---------+
+2 rows in set (0.00 sec)
+
+21.	Write a query to select all record from employees where last name in 'BLAKE', 'SCOTT', 'KING' and 'FORD'
+ANS:
+mysql> select * from employee where last_name in ('blake','Bura','king','Bhosale');
++-----+------------+-----------+---------------------+--------------+------------+--------+--------+------------+------------+---------+------+
+| eid | first_name | last_name | email               | phone_number | hire_date  | job_id | salary | commission | manager_id | dept_id | pf   |
++-----+------------+-----------+---------------------+--------------+------------+--------+--------+------------+------------+---------+------+
+|   3 | Neha       | Bura      | buraneha@gmail.com  |   8856979258 | 2018-05-15 |    102 |  55000 |       5500 |        116 |      70 | 8250 |
+|  12 | Renu       | Bhosale   | bhosaleu@gmail.com  |   8856459347 | 1992-12-05 |    101 |  15000 |       2500 |        200 |      10 | 4000 |
+|  13 | Piyu       | Bhosale   | bhosale98@gmail.com |   8845459347 | 1998-12-05 |    101 |  12000 |       2500 |        203 |      60 | 5000 |
++-----+------------+-----------+---------------------+--------------+------------+--------+--------+------------+------------+---------+------+
+3 rows in set (0.00 sec)

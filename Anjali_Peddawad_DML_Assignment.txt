@@ -1,0 +1,337 @@
+1.	Write a SQL statement to insert a record as follows:
+ANS:
+mysql> alter table employee
+    ->  modify phone_number Bigint;
+Query OK, 0 rows affected (1.85 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> insert into employee values(1,'Namrata','Humbe','humbenamu@gmail.com',8856979256,'2022-08-25',101,25000,3000,200,10);
+Query OK, 1 row affected (0.10 sec)
+mysql> select * from employee;
++-----+------------+-----------+---------------------+--------------+------------+--------+--------+------------+------------+---------+
+| eid | first_name | last_name | email               | phone_number | hire_date  | job_id | salary | commission | manager_id | dept_id |
++-----+------------+-----------+---------------------+--------------+------------+--------+--------+------------+------------+---------+
+|   1 | Namrata    | Humbe     | humbenamu@gmail.com |   8856979256 | 2022-08-25 |    101 |  25000 |       3000 |        200 |      10 |
++-----+------------+-----------+---------------------+--------------+------------+--------+--------+------------+------------+---------+
+1 row in set (0.00 sec)
+
+mysql> insert into employee values(2,'Priyanka','Jinturkar','jinturkarp@gmail.com',8856979257,'2012-09-05',101,25000,3000,201,20),
+	-> (3,'Neha','Bura','buraneha@gmail.com',8856979258,'2018-05-15',102,50000,7000,116,70),
+	-> (4,'Sneha','Kabra','kabrasneha@gmail.com',8756979258,'2018-05-15',102,50000,7000,204,80),
+	-> (5,'Vikram','Bansode','bansodev21@gmail.com',9856979258,'2018-05-15',102,58000,6000,114,30),
+	-> (6,'Sanhita','Kasat','kasats@gmail.com',8856879258,'2018-05-15',102,27000,3000,115,50),
+	-> (7,'Veeha','Shinde','veehas56@gmail.com',8855679258,'2018-05-15',102,30000,1500,202,40),
+	-> (8,'Adesh','Kadam','adeshk@gmail.com',8856979348,'2018-05-15',102,35000,2500,116,70),
+	-> (9,'Shital','Paliwal','paliwals1@gmail.com',8856979267,'2018-05-15',102,40000,5000,114,30),
+	-> (10,'Pravin','Jadhav','jadhavp@gmail.com',8856979292,'2018-05-15',102,50000,5500,203,60);
+Query OK, 9 rows affected (0.19 sec)
+Records: 9  Duplicates: 0  Warnings: 0
+
+mysql> select * from employee;
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+
+| eid | first_name | last_name | email                | phone_number | hire_date  | job_id | salary | commission | manager_id | dept_id |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+
+|   1 | Namrata    | Humbe     | humbenamu@gmail.com  |   8856979256 | 2022-08-25 |    101 |  25000 |       3000 |        200 |      10 |
+|   2 | Priyanka   | Jinturkar | jinturkarp@gmail.com |   8856979257 | 2012-09-05 |    101 |  25000 |       3000 |        201 |      20 |
+|   3 | Neha       | Bura      | buraneha@gmail.com   |   8856979258 | 2018-05-15 |    102 |  50000 |       7000 |        116 |      70 |
+|   4 | Sneha      | Kabra     | kabrasneha@gmail.com |   8756979258 | 2018-05-15 |    102 |  50000 |       7000 |        204 |      80 |
+|   5 | Vikram     | Bansode   | bansodev21@gmail.com |   9856979258 | 2018-05-15 |    102 |  58000 |       6000 |        114 |      30 |
+|   6 | Sanhita    | Kasat     | kasats@gmail.com     |   8856879258 | 2018-05-15 |    102 |  27000 |       3000 |        115 |      50 |
+|   7 | Veeha      | Shinde    | veehas56@gmail.com   |   8855679258 | 2018-05-15 |    102 |  30000 |       1500 |        202 |      40 |
+|   8 | Adesh      | Kadam     | adeshk@gmail.com     |   8856979348 | 2018-05-15 |    102 |  35000 |       2500 |        116 |      70 |
+|   9 | Shital     | Paliwal   | paliwals1@gmail.com  |   8856979267 | 2018-05-15 |    102 |  40000 |       5000 |        114 |      30 |
+|  10 | Pravin     | Jadhav    | jadhavp@gmail.com    |   8856979292 | 2018-05-15 |    102 |  50000 |       5500 |        203 |      60 |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+
+10 rows in set (0.00 sec)
+
+mysql> insert into department values(10,'Administration',200,1700),
+    -> (20,'Marketing',201,1800), (30,'Purchasing',114,1700),
+    -> (40,'Human Resources',202,1900),(50,'Shipping',115,1800),
+    -> (60,'IT',203,2000),(70,'Public Relations',116,2010),
+    -> (80,'Sales',204,3000);
+Query OK, 8 rows affected (0.12 sec)
+Records: 8  Duplicates: 0  Warnings: 0
+
+mysql> select* from department;
++---------+------------------+------------+-------------+
+| dept_id | dept_name        | Manager_id | location_id |
++---------+------------------+------------+-------------+
+|      10 | Administration   |        200 |        1700 |
+|      20 | Marketing        |        201 |        1800 |
+|      30 | Purchasing       |        114 |        1700 |
+|      40 | Human Resources  |        202 |        1900 |
+|      50 | Shipping         |        115 |        1800 |
+|      60 | IT               |        203 |        2000 |
+|      70 | Public Relations |        116 |        2010 |
+|      80 | Sales            |        204 |        3000 |
++---------+------------------+------------+-------------+
+8 rows in set (0.00 sec)
+
+2.	Write a SQL statement to insert 3 rows by a single insert statement.
+ANS:
+mysql> desc student;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| sid      | int         | YES  |     | NULL    |       |
+| sname    | varchar(10) | YES  |     | NULL    |       |
+| mobile   | bigint      | YES  |     | NULL    |       |
+| bloodgrp | varchar(3)  | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into student(sid,sname,mobile,bloodgrp) values(1,'Namrata',8856979256,'B+'),
+    -> (11,'Pallavi',9256743578,'O+'),
+    -> (21,'Dhananjay',9028546438,'O-');
+Query OK, 3 rows affected (0.12 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from student;
++------+-----------+------------+----------+
+| sid  | sname     | mobile     | bloodgrp |
++------+-----------+------------+----------+
+|    1 | Namrata   | 8856979256 | B+       |
+|   11 | Pallavi   | 9256743578 | O+       |
+|   21 | Dhananjay | 9028546438 | O-       |
++------+-----------+------------+----------+
+3 rows in set (0.00 sec)
+
+3.	Write a SQL statement to insert one row in jobs table to ensure that no duplicate value will be entered in the job_id column.
+ANS:
+mysql> use jobs;
+Database changed
+mysql> desc jobs;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| job_id     | int         | YES  |     | NULL    |       |
+| job_title  | varchar(20) | YES  |     | blank   |       |
+| min_salary | float       | YES  |     | 8000    |       |
+| max_salary | float       | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table jobs
+    -> modify job_id int unique;
+Query OK, 0 rows affected (0.42 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc jobs;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| job_id     | int         | YES  | UNI | NULL    |       |
+| job_title  | varchar(20) | YES  |     | blank   |       |
+| min_salary | float       | YES  |     | 8000    |       |
+| max_salary | float       | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into jobs values (1,'HR',2000,39000),
+    -> (2,'manager',30000,40000),(3,'Associate',40000,50000),(4,'Developer',30000,45000);
+Query OK, 4 rows affected (0.38 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+4.	Write SQL statement to increment salary of each emp by 10%.
+ANS:
+mysql> desc employee;
++--------------+--------------+------+-----+---------+----------------+
+| Field        | Type         | Null | Key | Default | Extra          |
++--------------+--------------+------+-----+---------+----------------+
+| eid          | int          | NO   | PRI | NULL    | auto_increment |
+| first_name   | varchar(15)  | YES  |     | NULL    |                |
+| last_name    | varchar(15)  | YES  |     | NULL    |                |
+| email        | varchar(20)  | YES  |     | NULL    |                |
+| phone_number | bigint       | YES  |     | NULL    |                |
+| hire_date    | date         | YES  |     | NULL    |                |
+| job_id       | int          | YES  |     | NULL    |                |
+| salary       | float        | YES  |     | NULL    |                |
+| commission   | float        | YES  |     | NULL    |                |
+| manager_id   | decimal(6,0) | YES  |     | NULL    |                |
+| dept_id      | decimal(4,0) | YES  | MUL | NULL    |                |
++--------------+--------------+------+-----+---------+----------------+
+11 rows in set (0.00 sec)
+
+mysql> select * from employee;
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+
+| eid | first_name | last_name | email                | phone_number | hire_date  | job_id | salary | commission | manager_id | dept_id |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+
+|   1 | Namrata    | Humbe     | humbenamu@gmail.com  |   8856979256 | 2022-08-25 |    101 |  25000 |       3000 |        200 |      10 |
+|   2 | Priyanka   | Jinturkar | jinturkarp@gmail.com |   8856979257 | 2012-09-05 |    101 |  25000 |       3000 |        201 |      20 |
+|   3 | Neha       | Bura      | buraneha@gmail.com   |   8856979258 | 2018-05-15 |    102 |  50000 |       7000 |        116 |      70 |
+|   4 | Sneha      | Kabra     | kabrasneha@gmail.com |   8756979258 | 2018-05-15 |    102 |  50000 |       7000 |        204 |      80 |
+|   5 | Vikram     | Bansode   | bansodev21@gmail.com |   9856979258 | 2018-05-15 |    102 |  58000 |       6000 |        114 |      30 |
+|   6 | Sanhita    | Kasat     | kasats@gmail.com     |   8856879258 | 2018-05-15 |    102 |  27000 |       3000 |        115 |      50 |
+|   7 | Veeha      | Shinde    | veehas56@gmail.com   |   8855679258 | 2018-05-15 |    102 |  30000 |       1500 |        202 |      40 |
+|   8 | Adesh      | Kadam     | adeshk@gmail.com     |   8856979348 | 2018-05-15 |    102 |  35000 |       2500 |        116 |      70 |
+|   9 | Shital     | Paliwal   | paliwals1@gmail.com  |   8856979267 | 2018-05-15 |    102 |  40000 |       5000 |        114 |      30 |
+|  10 | Pravin     | Jadhav    | jadhavp@gmail.com    |   8856979292 | 2018-05-15 |    102 |  50000 |       5500 |        203 |      60 |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+
+10 rows in set (0.08 sec)
+
+mysql> update employee set salary=salary+(salary*0.10);
+Query OK, 10 rows affected (0.09 sec)
+Rows matched: 10  Changed: 10  Warnings: 0
+
+mysql> select * from employee;
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+
+| eid | first_name | last_name | email                | phone_number | hire_date  | job_id | salary | commission | manager_id | dept_id |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+
+|   1 | Namrata    | Humbe     | humbenamu@gmail.com  |   8856979256 | 2022-08-25 |    101 |  27500 |       3000 |        200 |      10 |
+|   2 | Priyanka   | Jinturkar | jinturkarp@gmail.com |   8856979257 | 2012-09-05 |    101 |  27500 |       3000 |        201 |      20 |
+|   3 | Neha       | Bura      | buraneha@gmail.com   |   8856979258 | 2018-05-15 |    102 |  55000 |       7000 |        116 |      70 |
+|   4 | Sneha      | Kabra     | kabrasneha@gmail.com |   8756979258 | 2018-05-15 |    102 |  55000 |       7000 |        204 |      80 |
+|   5 | Vikram     | Bansode   | bansodev21@gmail.com |   9856979258 | 2018-05-15 |    102 |  63800 |       6000 |        114 |      30 |
+|   6 | Sanhita    | Kasat     | kasats@gmail.com     |   8856879258 | 2018-05-15 |    102 |  29700 |       3000 |        115 |      50 |
+|   7 | Veeha      | Shinde    | veehas56@gmail.com   |   8855679258 | 2018-05-15 |    102 |  33000 |       1500 |        202 |      40 |
+|   8 | Adesh      | Kadam     | adeshk@gmail.com     |   8856979348 | 2018-05-15 |    102 |  38500 |       2500 |        116 |      70 |
+|   9 | Shital     | Paliwal   | paliwals1@gmail.com  |   8856979267 | 2018-05-15 |    102 |  44000 |       5000 |        114 |      30 |
+|  10 | Pravin     | Jadhav    | jadhavp@gmail.com    |   8856979292 | 2018-05-15 |    102 |  55000 |       5500 |        203 |      60 |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+
+10 rows in set (0.00 sec)
+
+5.	Write a SQL statement to change the email and commission column of employees table with 'not available' and 0.10 for all employees.
+ANS:
+mysql> update employee set commission=salary*0.10;
+Query OK, 9 rows affected (0.11 sec)
+Rows matched: 10  Changed: 9  Warnings: 0
+
+mysql> update employee set email='Not Available';
+Query OK, 10 rows affected (0.14 sec)
+Rows matched: 10  Changed: 10  Warnings: 0
+
+mysql> select * from employee;
++-----+------------+-----------+---------------+--------------+------------+--------+--------+------------+------------+---------+
+| eid | first_name | last_name | email         | phone_number | hire_date  | job_id | salary | commission | manager_id | dept_id |
++-----+------------+-----------+---------------+--------------+------------+--------+--------+------------+------------+---------+
+|   1 | Namrata    | Humbe     | Not Available |   8856979256 | 2022-08-25 |    101 |  27500 |       2750 |        200 |      10 |
+|   2 | Priyanka   | Jinturkar | Not Available |   8856979257 | 2012-09-05 |    101 |  27500 |       2750 |        201 |      20 |
+|   3 | Neha       | Bura      | Not Available |   8856979258 | 2018-05-15 |    102 |  55000 |       5500 |        116 |      70 |
+|   4 | Sneha      | Kabra     | Not Available |   8756979258 | 2018-05-15 |    102 |  55000 |       5500 |        204 |      80 |
+|   5 | Vikram     | Bansode   | Not Available |   9856979258 | 2018-05-15 |    102 |  63800 |       6380 |        114 |      30 |
+|   6 | Sanhita    | Kasat     | Not Available |   8856879258 | 2018-05-15 |    102 |  29700 |       2970 |        115 |      50 |
+|   7 | Veeha      | Shinde    | Not Available |   8855679258 | 2018-05-15 |    102 |  33000 |       3300 |        202 |      40 |
+|   8 | Adesh      | Kadam     | Not Available |   8856979348 | 2018-05-15 |    102 |  38500 |       3850 |        116 |      70 |
+|   9 | Shital     | Paliwal   | Not Available |   8856979267 | 2018-05-15 |    102 |  44000 |       4400 |        114 |      30 |
+|  10 | Pravin     | Jadhav    | Not Available |   8856979292 | 2018-05-15 |    102 |  55000 |       5500 |        203 |      60 |
++-----+------------+-----------+---------------+--------------+------------+--------+--------+------------+------------+---------+
+10 rows in set (0.00 sec)
+
+6.	Write a SQL statement to change the email column of employees table with 'not available' for those employees whose department_id is 80 
+and gets a commission is less than 20%
+ANS:
+mysql> update employee set email='humbenamu@gmail.com' where eid=1;
+Query OK, 1 row affected (0.13 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee set email='jinturkarp@gmail.com' where eid=2;
+Query OK, 1 row affected (0.12 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee set email='buraneha@gmail.com' where eid=3;
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee set email='kabrasneha@gmail.com' where eid=4;
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee set email='bansodev@gmail.com' where eid=5;
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee set email='kasatsanhi@gmail.com' where eid=6;
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  update employee set email='shindev@gmail.com' where eid=7;
+Query OK, 1 row affected (0.09 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  update employee set email='kadamad@gmail.com' where eid=8;
+Query OK, 1 row affected (0.09 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  update employee set email='spaliwal@gmail.com' where eid=9;
+Query OK, 1 row affected (0.11 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  update employee set email='jadhav23@gmail.com' where eid=10;
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+
+| eid | first_name | last_name | email                | phone_number | hire_date  | job_id | salary | commission | manager_id | dept_id |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+
+|   1 | Namrata    | Humbe     | humbenamu@gmail.com  |   8856979256 | 2022-08-25 |    101 |  27500 |       2750 |        200 |      10 |
+|   2 | Priyanka   | Jinturkar | jinturkarp@gmail.com |   8856979257 | 2012-09-05 |    101 |  27500 |       2750 |        201 |      20 |
+|   3 | Neha       | Bura      | buraneha@gmail.com   |   8856979258 | 2018-05-15 |    102 |  55000 |       5500 |        116 |      70 |
+|   4 | Sneha      | Kabra     | kabrasneha@gmail.com |   8756979258 | 2018-05-15 |    102 |  55000 |       5500 |        204 |      80 |
+|   5 | Vikram     | Bansode   | bansodev@gmail.com   |   9856979258 | 2018-05-15 |    102 |  63800 |       6380 |        114 |      30 |
+|   6 | Sanhita    | Kasat     | kasatsanhi@gmail.com |   8856879258 | 2018-05-15 |    102 |  29700 |       2970 |        115 |      50 |
+|   7 | Veeha      | Shinde    | shindev@gmail.com    |   8855679258 | 2018-05-15 |    102 |  33000 |       3300 |        202 |      40 |
+|   8 | Adesh      | Kadam     | kadamad@gmail.com    |   8856979348 | 2018-05-15 |    102 |  38500 |       3850 |        116 |      70 |
+|   9 | Shital     | Paliwal   | spaliwal@gmail.com   |   8856979267 | 2018-05-15 |    102 |  44000 |       4400 |        114 |      30 |
+|  10 | Pravin     | Jadhav    | jadhav23@gmail.com   |   8856979292 | 2018-05-15 |    102 |  55000 |       5500 |        203 |      60 |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+
+10 rows in set (0.00 sec)
+
+mysql> update employee set email='Not Available' where dept_id=80 and commission<(0.20*salary);
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
+mysql> select * from employee;
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+
+| eid | first_name | last_name | email                | phone_number | hire_date  | job_id | salary | commission | manager_id | dept_id |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+
+|   1 | Namrata    | Humbe     | humbenamu@gmail.com  |   8856979256 | 2022-08-25 |    101 |  27500 |       2750 |        200 |      10 |
+|   2 | Priyanka   | Jinturkar | jinturkarp@gmail.com |   8856979257 | 2012-09-05 |    101 |  27500 |       2750 |        201 |      20 |
+|   3 | Neha       | Bura      | buraneha@gmail.com   |   8856979258 | 2018-05-15 |    102 |  55000 |       5500 |        116 |      70 |
+|   4 | Sneha      | Kabra     | Not Available        |   8756979258 | 2018-05-15 |    102 |  55000 |       5500 |        204 |      80 |
+|   5 | Vikram     | Bansode   | bansodev@gmail.com   |   9856979258 | 2018-05-15 |    102 |  63800 |       6380 |        114 |      30 |
+|   6 | Sanhita    | Kasat     | kasatsanhi@gmail.com |   8856879258 | 2018-05-15 |    102 |  29700 |       2970 |        115 |      50 |
+|   7 | Veeha      | Shinde    | shindev@gmail.com    |   8855679258 | 2018-05-15 |    102 |  33000 |       3300 |        202 |      40 |
+|   8 | Adesh      | Kadam     | kadamad@gmail.com    |   8856979348 | 2018-05-15 |    102 |  38500 |       3850 |        116 |      70 |
+|   9 | Shital     | Paliwal   | spaliwal@gmail.com   |   8856979267 | 2018-05-15 |    102 |  44000 |       4400 |        114 |      30 |
+|  10 | Pravin     | Jadhav    | jadhav23@gmail.com   |   8856979292 | 2018-05-15 |    102 |  55000 |       5500 |        203 |      60 |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+
+10 rows in set (0.00 sec)
+
+7.	Write a SQL statement to change the email column of employees table with 'not available' for those employees who belongs to the 'Purchesing' department.
+ANS:
+mysql> select* from department;
++---------+------------------+------------+-------------+
+| dept_id | dept_name        | Manager_id | location_id |
++---------+------------------+------------+-------------+
+|      10 | Administration   |        200 |        1700 |
+|      20 | Marketing        |        201 |        1800 |
+|      30 | Purchasing       |        114 |        1700 |
+|      40 | Human Resources  |        202 |        1900 |
+|      50 | Shipping         |        115 |        1800 |
+|      60 | IT               |        203 |        2000 |
+|      70 | Public Relations |        116 |        2010 |
+|      80 | Sales            |        204 |        3000 |
++---------+------------------+------------+-------------+
+8 rows in set (0.03 sec)
+
+mysql> update employee set email='Not Available' where dept_id=(select dept_id from department where dept_name='purchasing');
+Query OK, 2 rows affected (0.13 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select * from employee;
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+
+| eid | first_name | last_name | email                | phone_number | hire_date  | job_id | salary | commission | manager_id | dept_id |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+
+|   1 | Namrata    | Humbe     | humbenamu@gmail.com  |   8856979256 | 2022-08-25 |    101 |  27500 |       2750 |        200 |      10 |
+|   2 | Priyanka   | Jinturkar | jinturkarp@gmail.com |   8856979257 | 2012-09-05 |    101 |  27500 |       2750 |        201 |      20 |
+|   3 | Neha       | Bura      | buraneha@gmail.com   |   8856979258 | 2018-05-15 |    102 |  55000 |       5500 |        116 |      70 |
+|   4 | Sneha      | Kabra     | Not Available        |   8756979258 | 2018-05-15 |    102 |  55000 |       5500 |        204 |      80 |
+|   5 | Vikram     | Bansode   | Not Available        |   9856979258 | 2018-05-15 |    102 |  63800 |       6380 |        114 |      30 |
+|   6 | Sanhita    | Kasat     | kasatsanhi@gmail.com |   8856879258 | 2018-05-15 |    102 |  29700 |       2970 |        115 |      50 |
+|   7 | Veeha      | Shinde    | shindev@gmail.com    |   8855679258 | 2018-05-15 |    102 |  33000 |       3300 |        202 |      40 |
+|   8 | Adesh      | Kadam     | kadamad@gmail.com    |   8856979348 | 2018-05-15 |    102 |  38500 |       3850 |        116 |      70 |
+|   9 | Shital     | Paliwal   | Not Available        |   8856979267 | 2018-05-15 |    102 |  44000 |       4400 |        114 |      30 |
+|  10 | Pravin     | Jadhav    | jadhav23@gmail.com   |   8856979292 | 2018-05-15 |    102 |  55000 |       5500 |        203 |      60 |
++-----+------------+-----------+----------------------+--------------+------------+--------+--------+------------+------------+---------+
+10 rows in set (0.00 sec)
+
